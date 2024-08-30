@@ -40,6 +40,7 @@ class mainMenu{
 			}
 			
 			void searchBook(){
+				
 				bool found = false;
 				ifstream book("book.txt");
 				string keyword;
@@ -48,30 +49,29 @@ class mainMenu{
 				cin >> keyword;
 				
 				while (book >> name >> author >> year){
-						
-					if (keyword != name){
-					cout << "Book not found!\n";
+			
+					if (keyword == name){
 					
-					cout << endl;
-					system("pause");
-					system("cls");
-					break;
-				}
-				
-					if (keyword == name)
 					cout << "\nBook Found!\n";
-					cout << "\n\nBook Name: " << setw(10) << name;
+					cout << "\nBook Name: " << setw(10) << name;
 					cout << "\nAuthor: "<< setw(10) << author;
 					cout << "\nYear: "<< setw(10) << year;
-					
-					found = true;
-				
 					cout << endl;
 					system("pause");
 					system("cls");
+					found = true;
 					break;
 				}
 			}
+	if (found == false) 
+	cout << "\nNo book found!"; 
+	cout << endl << endl; 
+	system("pause"); 
+	system("cls"); 
+ 
+		};
+				
+				
 			
 			void display(){
 				ifstream book("book.txt");
@@ -119,7 +119,5 @@ int main(){
 		return 0;
 
 	}
-	
-	
-}
+	};
 }
