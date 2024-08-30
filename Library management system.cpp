@@ -121,6 +121,11 @@ int main(){
 	case 4:
 		cout << "Happy Reading XD";
 		return 0;
+		
+	default:
+		cout << "Invalid option\n";
+		system ("pause");
+		system ("cls");
 
 	}
 	};
