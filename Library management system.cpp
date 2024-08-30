@@ -36,6 +36,8 @@ class mainMenu{
 					cout << endl;
 					system("pause");
 					system("cls");
+					
+					book.close();
 			
 			}
 			
@@ -60,6 +62,8 @@ class mainMenu{
 					system("pause");
 					system("cls");
 					found = true;
+					
+					
 					break;
 				}
 			}
@@ -68,11 +72,10 @@ class mainMenu{
 	cout << endl << endl; 
 	system("pause"); 
 	system("cls"); 
- 
-		};
-				
-				
-			
+
+book.close(); 
+		}
+	
 			void display(){
 				ifstream book("book.txt");
 				cout << "Book\t\t\t\tAuthor\t\t\tYear\n";
@@ -82,6 +85,7 @@ class mainMenu{
 				cout << endl;
 					system("pause");
 					system("cls");
+					book.close();
 			}
 		
 };
