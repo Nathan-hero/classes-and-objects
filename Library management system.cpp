@@ -91,12 +91,9 @@ book.close();
 };
 
 
-
-
 int main(){
 	mainMenu m1;
 	int choice;
-	
 	while(true){
 	
 	cout << "===========[MainMenu]===========\n";
@@ -118,9 +115,13 @@ int main(){
 	m1.searchBook();
 	break;
 	
-	case 4:
+	case 4: 	
 		cout << "Happy Reading XD";
 		return 0;
+		
+		cout << "Invalid option\n";
+		system ("pause");
+		system ("cls");
 
 	}
 	};
