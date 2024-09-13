@@ -113,7 +113,7 @@ int main() {
     while (running) {
         m1.MainMenu();
         cin >> m1.menu_choice;
-        cin.ignore();  // Clear the newline from input buffer
+        cin.ignore();  
 
         switch (m1.menu_choice) {
             case 1: {
