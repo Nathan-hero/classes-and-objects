@@ -6,7 +6,9 @@
 using namespace std;
 
 class menu {
-    public:
+	
+	public:
+	
         int menu_choice;
         
         void MainMenu() {
@@ -22,7 +24,7 @@ class product {
                                   {"AB", "AC", "AD", "AE", "AF"}};
         int item_price[5] = {800, 650, 7000, 13000, 50};
 
-        void prod() {
+        void prod() {//Display
             cout << "ID" << "\t\t\t" << "Name" << "\t\t\t" << "Price\n";
             for (int i = 0; i < 5; i++) {
                 cout << item_name[1][i] << "\t\t\t" << item_name[0][i] << "\t\t\t" << item_price[i] << endl;
@@ -63,7 +65,7 @@ class cart {
     public:
         void CartDisplay(int item_location[10], int item_quantity[10], int item_price[5], string item_name[2][5], int increment){
             if (increment == 0) {
-                cout << "[Empty]\n";
+                cout << "The cart is empty\n";
                 return;
             }
             cout << "ID" << "\t\t\t" << "Name" << "\t\t\t" << "Price" << "\t\t\t" << "Quantity\n";
@@ -79,16 +81,22 @@ class order {
 		
 	public:
 		void OrderDisplay(int item_location[10], int item_quantity[10], int item_price[5], string item_name[2][5], int increment){
+			int grand_total;
 			
 			for (int i = 0; i < increment; i++) {
                 int loc = item_location[i];
-                cout << "\n\nOrder ID: " << i << endl;
+                
+                cout << "\n\nOrder ID: " << i+1 << endl;
                 cout << "Total amount: " << item_price[loc] * item_quantity[i] << endl;
                 cout << "Order details\n";
-            
+            	
+            	grand_total = grand_total + item_price[loc] * item_quantity[i];
+            	
             	cout << "ID" << "\t\t\t" << "Name" << "\t\t\t" << "Price" << "\t\t\t" << "Quantity\n";
 			    cout << item_name[1][loc] << "\t\t\t" << item_name[0][loc] << "\t\t" << item_price[loc] << "\t\t\t" << item_quantity[i] << endl;
 			}
+			
+			cout << endl << "Grand total of: " << grand_total;
 		}
 };
 
@@ -121,7 +129,9 @@ int main() {
                 while (adding) {
                     a1.prod(); 
                     a1.addprod(increment, item_quantity, item_location, chosen);
-                    cout << endl;
+                
+				    cout << endl;
+                
                     cout << "Add another item? (Y/N): ";
                     cin >> y_n;
                     cin.ignore();
@@ -137,7 +147,14 @@ int main() {
                 break;
             }
             case 2: {
+            	cout << "You can only store 10 items in the cart\n\n";
                 c1.CartDisplay(item_location, item_quantity, a1.item_price, a1.item_name, increment);
+                 if (item_quantity[0] == 0){
+                    	system ("pause");
+                    	system ("cls");
+						break;
+					}
+                	
                 char chkout;
 				cout << "Checkout? (Y/N): ";
                 cin >> chkout;
@@ -153,8 +170,8 @@ int main() {
                 	cout << "You have successfully checked out the products!\n\n";
                 	o1.OrderDisplay(item_location, item_quantity, a1.item_price, a1.item_name, increment);
 					return 1;
-                	
 				}
+				
                 break;
             }
 
